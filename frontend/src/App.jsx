@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Trips from "./pages/Trips";
+import Itinerary from "./pages/Itinerary";
 
 function App() {
   return (
@@ -50,6 +51,13 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
+        { /* AI Itinerary */}
+
+        <Route
+          path="/itinerary"
+          element={<Itinerary />}
+        />  
 
       </Routes>
 

@@ -22,6 +22,9 @@ function Navbar() {
       <Link to="/trips">Trips</Link>
       {" | "}
 
+      <Link to="/itinerary">Itinerary</Link>
+      {" | "}
+
       <Link to="/login">Login</Link>
       {" | "}
 
