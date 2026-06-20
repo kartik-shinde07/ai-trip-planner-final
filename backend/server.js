@@ -8,6 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 // Import Trip Routes
 const tripRoutes = require("./routes/tripRoutes");
 const aiRoutes = require("./routes/aiRoutes");
+const itineraryRoutes = require("./routes/itineraryRoutes");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use("/api/user", userRoutes);
 // Trip APIs
 app.use("/api/trips", tripRoutes);
 app.use("/api/ai", aiRoutes);
+app.use("/api/itinerary", itineraryRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
