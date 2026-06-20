@@ -31,6 +31,10 @@ function Navbar() {
       <Link to="/register">Register</Link>
       {" | "}
 
+      <Link to="/saved-itineraries">
+      Saved Itineraries
+      </Link>
+
       {/* Logout Button */}
       <button onClick={handleLogout}>
         Logout

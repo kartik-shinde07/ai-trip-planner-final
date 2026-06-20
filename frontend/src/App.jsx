@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Trips from "./pages/Trips";
 import Itinerary from "./pages/Itinerary";
+import SavedItineraries from "./pages/SavedItineraries";
 
 function App() {
   return (
@@ -59,7 +60,14 @@ function App() {
           element={<Itinerary />}
         />  
 
-      </Routes>
+      
+
+        <Route
+          path="/saved-itineraries"
+          element={<SavedItineraries />}
+       />
+
+       </Routes>
 
     </>
   );
