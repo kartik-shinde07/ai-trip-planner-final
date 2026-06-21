@@ -8,6 +8,8 @@ function Itinerary() {
   const [days, setDays] = useState("");
   const [itinerary, setItinerary] = useState("");
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+ 
 
   const generateItinerary = async () => {
     if (
@@ -52,7 +54,7 @@ function Itinerary() {
       itinerary,
     });
 
-    alert("Itinerary Saved Successfully");
+   setMessage("Itinerary Saved Successfully!");
   } catch (error) {
     console.log(error);
     alert("Failed to Save Itinerary");
@@ -126,6 +128,7 @@ function Itinerary() {
       >
         {itinerary}
       </div>
+      
       {
   itinerary && (
     <button onClick={saveItinerary}>
@@ -133,6 +136,22 @@ function Itinerary() {
     </button>
   )
 }
+
+{
+  message && (
+    <p
+      style={{
+        color: "green",
+        fontWeight: "bold",
+        marginTop: "10px",
+      }}
+    >
+      {message}
+    </p>
+  )
+}
+  
+
     </div>
   );
 }
