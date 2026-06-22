@@ -2,12 +2,24 @@ const Itinerary = require("../models/Itinerary");
 
 const saveItinerary = async (req, res) => {
   try {
-    const itinerary = await Itinerary.create({
-      ...req.body,
+    const { destination, budget, travelers, days, itinerary } = req.body;
+
+    if (!destination || !budget || !travelers || !days || !itinerary) {
+      return res.status(400).json({
+        message: "All fields are required",
+      });
+    }
+
+    const savedItinerary = await Itinerary.create({
+      destination,
+      budget,
+      travelers,
+      days,
+      itinerary,
       user: req.user.id,
     });
 
-    res.status(201).json(itinerary);
+    res.status(201).json(savedItinerary);
   } catch (error) {
     console.log(error);
 
