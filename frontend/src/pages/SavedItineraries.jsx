@@ -17,6 +17,20 @@ function SavedItineraries() {
     }
   };
 
+  const deleteItinerary = async (id) => {
+  try {
+    await api.delete(`/itinerary/${id}`);
+
+    setItineraries(
+      itineraries.filter(
+        (item) => item._id !== id
+      )
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
   useEffect(() => {
     fetchItineraries();
   }, []);
@@ -69,18 +83,19 @@ function SavedItineraries() {
           </div>
 
           <button
-            style={{
-              marginTop: "15px",
-              backgroundColor: "red",
-              color: "white",
-              border: "none",
-              padding: "8px 12px",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            Delete
-          </button>
+  onClick={() => deleteItinerary(item._id)}
+  style={{
+    marginTop: "15px",
+    backgroundColor: "red",
+    color: "white",
+    border: "none",
+    padding: "8px 12px",
+    borderRadius: "5px",
+    cursor: "pointer",
+  }}
+>
+  Delete
+</button>
         </div>
       ))}
     </div>
