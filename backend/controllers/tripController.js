@@ -11,6 +11,7 @@ exports.createTrip = async (req, res) => {
       endDate: req.body.endDate,
       budget: req.body.budget,
       travelers: req.body.travelers,
+      travelStyle: req.body.travelStyle,
     });
 
     res.status(201).json(trip);
@@ -25,7 +26,7 @@ exports.getTrips = async (req, res) => {
   try {
     const trips = await Trip.find({
       user: req.user.id,
-    });
+    }).sort({ createdAt: -1 });
 
     res.status(200).json(trips);
   } catch (error) {

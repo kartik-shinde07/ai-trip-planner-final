@@ -32,6 +32,11 @@ const tripSchema = new mongoose.Schema(
       type: Number,
       default: 1,
     },
+
+    travelStyle: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
