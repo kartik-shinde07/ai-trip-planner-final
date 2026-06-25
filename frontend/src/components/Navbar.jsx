@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
 
@@ -16,7 +17,12 @@ function Navbar() {
   return (
     <nav>
 
-      <Link to="/">Dashboard</Link>
+      
+  <h2>TripGenius</h2>
+
+ 
+    <div>
+      <Link to="/dashboard">Dashboard</Link>
       {" | "}
 
       <Link to="/trips">Trips</Link>
@@ -39,7 +45,7 @@ function Navbar() {
       <button onClick={handleLogout}>
         Logout
       </button>
-
+    </div>
     </nav>
   );
 }

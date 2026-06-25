@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 // Axios instance
 import api from "../services/api";
 
+import "./Auth.css";
+
 function Login() {
 
   // Stores email entered by user
@@ -52,51 +54,43 @@ function Login() {
     }
   };
 
-  return (
-    <div>
+ return (
+  <div className="auth-container">
 
-      <h1>Login Page</h1>
+    <div className="auth-card">
 
-      {/* Email Input */}
+      <h1>Welcome Back</h1>
+
+      <p className="auth-subtitle">
+        Login to continue planning your trips
+      </p>
 
       <input
         type="email"
         placeholder="Enter Email"
-
         value={email}
-
         onChange={(e) =>
           setEmail(e.target.value)
         }
       />
 
-      <br />
-      <br />
-
-      {/* Password Input */}
-
       <input
         type="password"
         placeholder="Enter Password"
-
         value={password}
-
         onChange={(e) =>
           setPassword(e.target.value)
         }
       />
-
-      <br />
-      <br />
-
-      {/* Login Button */}
 
       <button onClick={handleLogin}>
         Login
       </button>
 
     </div>
-  );
+
+  </div>
+);
 }
 
 export default Login;

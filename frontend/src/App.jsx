@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Trips from "./pages/Trips";
 import Itinerary from "./pages/Itinerary";
 import SavedItineraries from "./pages/SavedItineraries";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -18,6 +19,17 @@ function App() {
       <Navbar />
 
       <Routes>
+
+
+        <Route
+          path="/"
+          element={<Home />}
+        />
+
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
 
         {/* Public Routes */}
 
@@ -34,14 +46,13 @@ function App() {
         {/* Protected Dashboard */}
 
         <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-
+  path="/dashboard"
+  element={
+    <ProtectedRoute>
+      <Dashboard />
+    </ProtectedRoute>
+  }
+/>
         {/* Protected Trips */}
 
         <Route

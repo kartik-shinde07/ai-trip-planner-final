@@ -2,6 +2,11 @@
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
+  --primary: #4F46E5;
+  --secondary: #7C3AED;
+  --accent-blue: #06B6D4;
+  --dark: #0F172A;
+  --light: #F8FAFC;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -52,10 +57,12 @@
 
 body {
   margin: 0;
+  background: var(--light);
+  font-family: Inter, sans-serif;
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;

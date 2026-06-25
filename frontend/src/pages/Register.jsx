@@ -1,5 +1,6 @@
 import { useState } from "react";
 import API from "../services/api";
+import "./Auth.css";
 
 function Register() {
   const [name, setName] = useState("");
@@ -24,44 +25,51 @@ function Register() {
   };
 
   return (
-    <div>
-      <h1>Register Page</h1>
+  <div className="auth-container">
+
+    <div className="auth-card">
+
+      <h1>Create Account</h1>
+
+      <p className="auth-subtitle">
+        Start planning your dream trips
+      </p>
 
       <input
         type="text"
-        placeholder="Full Name"
+        placeholder="Enter Name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) =>
+          setName(e.target.value)
+        }
       />
-
-      <br />
-      <br />
 
       <input
         type="email"
-        placeholder="Email"
+        placeholder="Enter Email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) =>
+          setEmail(e.target.value)
+        }
       />
-
-      <br />
-      <br />
 
       <input
         type="password"
-        placeholder="Password"
+        placeholder="Enter Password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) =>
+          setPassword(e.target.value)
+        }
       />
-
-      <br />
-      <br />
 
       <button onClick={handleRegister}>
         Register
       </button>
+
     </div>
-  );
+
+  </div>
+);
 }
 
 export default Register;

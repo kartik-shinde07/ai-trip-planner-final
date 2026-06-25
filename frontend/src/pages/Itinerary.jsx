@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../services/api";
+import "./Itinerary.css";
 
 function Itinerary() {
   const [destination, setDestination] = useState("");
@@ -61,8 +62,11 @@ function Itinerary() {
   }
 };
 
-  return (
-    <div>
+ return (
+  <div className="itinerary-container">
+
+    <div className="itinerary-card">
+
       <h1>AI Itinerary Generator</h1>
 
       <input
@@ -72,18 +76,12 @@ function Itinerary() {
         onChange={(e) => setDestination(e.target.value)}
       />
 
-      <br />
-      <br />
-
       <input
         type="number"
         placeholder="Budget"
         value={budget}
         onChange={(e) => setBudget(e.target.value)}
       />
-
-      <br />
-      <br />
 
       <input
         type="number"
@@ -92,9 +90,6 @@ function Itinerary() {
         onChange={(e) => setTravelers(e.target.value)}
       />
 
-      <br />
-      <br />
-
       <input
         type="number"
         placeholder="Days"
@@ -102,10 +97,8 @@ function Itinerary() {
         onChange={(e) => setDays(e.target.value)}
       />
 
-      <br />
-      <br />
-
       <button
+        className="generate-btn"
         onClick={generateItinerary}
         disabled={loading}
       >
@@ -114,46 +107,34 @@ function Itinerary() {
           : "Generate Itinerary"}
       </button>
 
-      <hr />
-
-      <div
-        style={{
-          whiteSpace: "pre-wrap",
-          border: "1px solid #ccc",
-          padding: "20px",
-          borderRadius: "10px",
-          marginTop: "20px",
-          backgroundColor: "#f8f8f8",
-        }}
-      >
+      <div className="itinerary-result">
         {itinerary}
       </div>
-      
-      {
-  itinerary && (
-    <button onClick={saveItinerary}>
-      💾 Save Itinerary
-    </button>
-  )
-}
 
-{
-  message && (
-    <p
-      style={{
-        color: "green",
-        fontWeight: "bold",
-        marginTop: "10px",
-      }}
-    >
-      {message}
-    </p>
-  )
-}
-  
+      {itinerary && (
+        <button
+          className="save-btn"
+          onClick={saveItinerary}
+        >
+          💾 Save Itinerary
+        </button>
+      )}
+
+      {message && (
+        <p
+          style={{
+            color: "green",
+            fontWeight: "bold",
+            marginTop: "10px",
+          }}
+        >
+          {message}
+        </p>
+      )}
 
     </div>
-  );
-}
 
+  </div>
+);
+}
 export default Itinerary;

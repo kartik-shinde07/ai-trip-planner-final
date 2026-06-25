@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
+import "./SavedItineraries.css";
 
 function SavedItineraries() {
   const [itineraries, setItineraries] = useState([]);
@@ -40,66 +41,57 @@ function SavedItineraries() {
   }
 
   return (
-    <div>
-      <h1>Saved Itineraries</h1>
+  <div className="saved-container">
 
-      {itineraries.length === 0 && (
-        <h3>No Saved Itineraries Found</h3>
-      )}
+    <h1 className="saved-title">
+      Saved Itineraries
+    </h1>
 
-      {itineraries.map((item) => (
+    {itineraries.length === 0 && (
+      <p className="empty-state">
+        No Saved Itineraries Found
+      </p>
+    )}
+
+    {itineraries.map((item) => (
+      <div
+        key={item._id}
+        className="saved-card"
+      >
+        <h3>{item.destination}</h3>
+
+        <p>
+          <strong>Budget:</strong> ₹{item.budget}
+        </p>
+
+        <p>
+          <strong>Travelers:</strong> {item.travelers}
+        </p>
+
+        <p>
+          <strong>Days:</strong> {item.days}
+        </p>
+
         <div
-          key={item._id}
           style={{
-            border: "1px solid #ddd",
-            borderRadius: "10px",
-            padding: "20px",
-            marginBottom: "20px",
-            backgroundColor: "#fff",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            whiteSpace: "pre-wrap",
+            marginTop: "10px",
           }}
         >
-          <h3>{item.destination}</h3>
-
-          <p>
-            <strong>Budget:</strong> ₹{item.budget}
-          </p>
-
-          <p>
-            <strong>Travelers:</strong> {item.travelers}
-          </p>
-
-          <p>
-            <strong>Days:</strong> {item.days}
-          </p>
-
-          <div
-            style={{
-              whiteSpace: "pre-wrap",
-              marginTop: "10px",
-            }}
-          >
-            {item.itinerary}
-          </div>
-
-          <button
-  onClick={() => deleteItinerary(item._id)}
-  style={{
-    marginTop: "15px",
-    backgroundColor: "red",
-    color: "white",
-    border: "none",
-    padding: "8px 12px",
-    borderRadius: "5px",
-    cursor: "pointer",
-  }}
->
-  Delete
-</button>
+          {item.itinerary}
         </div>
-      ))}
-    </div>
-  );
-}
+
+        <button
+          className="delete-btn"
+          onClick={() => deleteItinerary(item._id)}
+        >
+          Delete
+        </button>
+
+      </div>
+    ))}
+
+  </div>
+);}
 
 export default SavedItineraries;

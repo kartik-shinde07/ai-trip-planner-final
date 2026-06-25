@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
+import "./Trips.css";
 
 function Trips() {
   const [trips, setTrips] = useState([]);
@@ -115,8 +116,11 @@ const editTrip = async (trip) => {
   }
 };
 
-  return (
-    <div>
+ return (
+  <div>
+
+    <div className="trip-form-card"></div>
+      
       <h1>My Trips</h1>
 
       <h2>Create Trip</h2>
@@ -165,28 +169,36 @@ const editTrip = async (trip) => {
       <br /><br />
 
       <button onClick={createTrip}>
-        Create Trip
-      </button>
+  Create Trip
+</button>
 
-      <hr />
+
+
+<hr />
 
       {trips.length === 0 ? (
         <p>No Trips Found</p>
       ) : (
         trips.map((trip) => (
-          <div key={trip._id}>
+          <div
+  key={trip._id}
+  className="trip-card"
+>
   <h3>{trip.destination}</h3>
   <p>Budget: ₹{trip.budget}</p>
   <p>Travelers: {trip.travelers}</p>
 
-  <button onClick={() => editTrip(trip)}>
-  Edit
-</button>
+ <button
+  className="edit-btn"
+  onClick={() => editTrip(trip)}
+></button>
 
-  <button onClick={() => deleteTrip(trip._id)}>
-    Delete
-  </button>
-
+  <button
+  className="delete-btn"
+  onClick={() => deleteTrip(trip._id)}
+></button>
+ 
+ 
   <hr />
 </div>
         ))
