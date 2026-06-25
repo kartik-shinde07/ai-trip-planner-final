@@ -8,6 +8,7 @@ const {
   saveItinerary,
   getItineraries,
   deleteItinerary,
+  updateItinerary,
 } = require("../controllers/itineraryController");
 
 router.post("/save", protect, saveItinerary);
@@ -15,5 +16,7 @@ router.post("/save", protect, saveItinerary);
 router.get("/", protect, getItineraries);
 
 router.delete("/:id", protect, deleteItinerary);
+
+router.put("/:id", protect, updateItinerary);
 
 module.exports = router;

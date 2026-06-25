@@ -71,8 +71,37 @@ const deleteItinerary = async (req, res) => {
   }
 };
 
+const updateItinerary = async (req, res) => {
+  try {
+    const itinerary = await Itinerary.findById(req.params.id);
+
+    if (!itinerary) {
+      return res.status(404).json({
+        message: "Itinerary not found",
+      });
+    }
+
+    const updatedItinerary = await Itinerary.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      },
+    );
+
+    res.status(200).json(updatedItinerary);
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      message: "Update failed",
+    });
+  }
+};
+
 module.exports = {
   saveItinerary,
   getItineraries,
   deleteItinerary,
+  updateItinerary,
 };
