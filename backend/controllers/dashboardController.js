@@ -1,8 +1,13 @@
 const Trip = require("../models/Trip");
+const Itinerary = require("../models/Itinerary");
 
 const getStats = async (req, res) => {
   try {
     const trips = await Trip.find({
+      user: req.user.id,
+    });
+
+    const itineraries = await Itinerary.find({
       user: req.user.id,
     });
 
@@ -13,9 +18,12 @@ const getStats = async (req, res) => {
       0,
     );
 
+    const savedItineraries = itineraries.length;
+
     res.json({
       totalTrips,
       totalBudget,
+      savedItineraries,
     });
   } catch (error) {
     res.status(500).json({
