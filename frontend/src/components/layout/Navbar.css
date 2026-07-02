@@ -1,0 +1,380 @@
+/* ==========================================================
+   NAVBAR.CSS
+   Premium Responsive Navbar
+========================================================== */
+
+/* ------------------------------
+   Global
+------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ------------------------------
+   Main Navbar
+------------------------------ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 18px 0;
+
+  background: transparent;
+
+  transition: all 0.35s ease;
+
+  z-index: 1000;
+}
+
+/* Navbar after scroll */
+
+.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ------------------------------
+   Navbar Container
+------------------------------ */
+
+.navbar-container {
+  width: 100%;
+  max-width: 1400px;
+
+  padding: 0 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ------------------------------
+   Right Side
+------------------------------ */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ------------------------------
+   Logo
+------------------------------ */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  color: var(--primary);
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* ------------------------------
+   Desktop Navigation
+------------------------------ */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  flex-wrap: nowrap;
+}
+
+.nav-link {
+  position: relative;
+
+  text-decoration: none;
+
+  color: var(--text-primary);
+
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: .3px;
+
+  transition: all .3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+/* underline */
+
+.nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--primary);
+
+  transition: width .3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* active */
+
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ------------------------------
+   Primary Button
+------------------------------ */
+
+.primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 150px;
+  height: 48px;
+
+  padding: 0 28px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 999px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all .3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+
+  box-shadow: 0 15px 35px rgba(15, 46, 90, .18);
+}
+
+/* ------------------------------
+   Hamburger Button
+------------------------------ */
+
+.menu-btn {
+  display: none;
+
+  background: transparent;
+  border: none;
+
+  color: var(--primary);
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ------------------------------
+   Overlay
+------------------------------ */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, .45);
+
+  backdrop-filter: blur(2px);
+
+  z-index: 1000;
+}
+
+/* ------------------------------
+   Mobile Menu
+------------------------------ */
+
+.mobile-menu {
+  position: fixed;
+
+  top: 0;
+  right: -100%;
+
+  width: 300px;
+  height: 100vh;
+
+  background: #fff;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 22px;
+
+  transition: right .35s ease;
+
+  box-shadow: -10px 0 30px rgba(0,0,0,.08);
+
+  z-index: 1001;
+
+  overflow-y: auto;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+/* ------------------------------
+   Mobile Header
+------------------------------ */
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+/* ------------------------------
+   Close Button
+------------------------------ */
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  color: var(--primary);
+
+  transition: .3s;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* ------------------------------
+   Mobile Links
+------------------------------ */
+
+.mobile-link {
+  text-decoration: none;
+
+  color: var(--text-primary);
+
+  font-size: 18px;
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.mobile-link:hover {
+  color: var(--primary);
+
+  transform: translateX(5px);
+}
+
+.mobile-link.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ------------------------------
+   Responsive
+------------------------------ */
+
+@media (max-width:1200px){
+
+  .navbar-container{
+    padding:0 40px;
+  }
+
+}
+
+@media (max-width:992px){
+
+  .navbar-container{
+    padding:0 24px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .primary-btn{
+    display:none;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+}
+
+@media (max-width:576px){
+
+  .navbar-container{
+    padding:0 18px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .mobile-menu{
+    width:100%;
+  }
+
+}

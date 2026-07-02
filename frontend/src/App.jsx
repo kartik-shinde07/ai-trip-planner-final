@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import Login from "./pages/Login";
