@@ -1,12 +1,14 @@
+@import "./styles.css";
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
-  --primary: #4F46E5;
-  --secondary: #7C3AED;
-  --accent-blue: #06B6D4;
-  --dark: #0F172A;
-  --light: #F8FAFC;
+  --primary: #4f46e5;
+  --secondary: #7c3aed;
+  --accent-blue: #06b6d4;
+  --dark: #0f172a;
+  --light: #f8fafc;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -16,8 +18,8 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
